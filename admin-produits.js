@@ -52,7 +52,7 @@ const recipesData = [
         sales: 32,
         revenue: 799.68,
         description: "Un cake riche en fruits secs et noix, parfait pour les fêtes",
-        image: "https://www.lacuisinedaurelie.com/wp-content/uploads/2019/02/IMG_3207.jpg",
+        image: "https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=400",
         tags: ["fruits secs", "dessert", "fêtes"],
         ingredients: [
             { name: "Fruits secs mélangés", quantity: "150g" },
@@ -195,7 +195,7 @@ const recipesData = [
         sales: 35,
         revenue: 944.65,
         description: "La célèbre tarte tatin revisitée avec des pommes premium",
-        image: "https://www.alice-academy.com/wp-content/uploads/2022/10/tarte-tatin.png",
+        image: "https://images.unsplash.com/photo-1621743478914-cc8a86d7e9b5?w=400",
         tags: ["tarte", "pommes", "français", "classique"],
         ingredients: [
             { name: "Pommes Reinette", quantity: "8" },
