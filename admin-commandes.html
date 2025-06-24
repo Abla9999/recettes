@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion Commandes - RecipeMaster Admin</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/admin.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <nav class="admin-navbar">
+            <div class="admin-brand">
+                <h1>👑 RecipeMaster Admin</h1>
+            </div>
+            <div class="admin-nav-links">
+                <a href="admin-dashboard.html">📊 Dashboard</a>
+                <a href="admin-clients.html">👥 Clients</a>
+                <a href="admin-produits.html">📚 Recettes</a>
+                <a href="admin-commandes.html" class="active">🛒 Commandes</a>
+            </div>
+            <div class="admin-user">
+                <span>Admin</span>
+                <a href="connexion.html" class="logout-btn">Déconnexion</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="admin-container">
+        <!-- Page Header -->
+        <div class="admin-page-header">
+            <div>
+                <h1>🛒 Gestion des Commandes</h1>
+                <p>Suivez et gérez toutes les commandes de recettes</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn-primary" onclick="exportOrders()">
+                    📊 Exporter
+                </button>
+                <button class="btn-secondary" onclick="refreshOrders()">
+                    🔄 Actualiser
+                </button>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">🛒</div>
+                <div class="stat-info">
+                    <h3 id="total-orders">0</h3>
+                    <p>Total Commandes</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⏳</div>
+                <div class="stat-info">
+                    <h3 id="pending-orders">0</h3>
+                    <p>En Attente</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-info">
+                    <h3 id="completed-orders">0</h3>
+                    <p>Terminées</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💰</div>
+                <div class="stat-info">
+                    <h3 id="total-revenue">0€</h3>
+                    <p>Revenus Total</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters and Search -->
+        <div class="admin-filters">
+            <div class="search-container">
+                <input type="text" id="order-search" placeholder="Rechercher par ID, client ou recette...">
+                <button class="search-btn">🔍</button>
+            </div>
+            <div class="filter-container">
+                <select id="status-filter">
+                    <option value="">Tous les statuts</option>
+                    <option value="pending">En Attente</option>
+                    <option value="processing">En Traitement</option>
+                    <option value="completed">Terminée</option>
+                    <option value="cancelled">Annulée</option>
+                </select>
+                <select id="period-filter">
+                    <option value="">Toutes les périodes</option>
+                    <option value="today">Aujourd'hui</option>
+                    <option value="week">Cette semaine</option>
+                    <option value="month">Ce mois</option>
+                    <option value="year">Cette année</option>
+                </select>
+                <input type="date" id="date-from" placeholder="Date de début">
+                <input type="date" id="date-to" placeholder="Date de fin">
+                <button class="btn-secondary" onclick="clearFilters()">Effacer</button>
+            </div>
+        </div>
+
+        <!-- Orders Table -->
+        <div class="admin-table-container">
+            <table class="admin-table" id="orders-table">
+                <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" id="select-all">
+                        </th>
+                        <th>ID Commande</th>
+                        <th>Client</th>
+                        <th>Recettes</th>
+                        <th>Quantité</th>
+                        <th>Total</th>
+                        <th>Date</th>
+                        <th>Statut</th>
+                        <th>Paiement</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="orders-tbody">
+                    <!-- Orders will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <button class="page-btn" onclick="previousPage()">⬅️ Précédent</button>
+            <div class="page-numbers" id="page-numbers"></div>
+            <button class="page-btn" onclick="nextPage()">Suivant ➡️</button>
+        </div>
+    </div>
+
+    <!-- Order Details Modal -->
+    <div id="order-details-modal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Détails de la Commande</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div id="order-details-content">
+                <!-- Order details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Update Status Modal -->
+    <div id="status-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Modifier le Statut</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <form id="status-form" class="admin-form">
+                <div class="form-group">
+                    <label>Nouveau Statut</label>
+                    <select id="new-status" required>
+                        <option value="pending">En Attente</option>
+                        <option value="processing">En Traitement</option>
+                        <option value="completed">Terminée</option>
+                        <option value="cancelled">Annulée</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Note (optionnel)</label>
+                    <textarea id="status-note" rows="3" placeholder="Raison du changement de statut..."></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal()">Annuler</button>
+                    <button type="submit" class="btn-primary">Mettre à Jour</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/admin-commandes.js"></script>
+</body>
+</html>

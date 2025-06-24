@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Démonstration - Fonctions d'Affichage</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .demo-controls {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .demo-controls h3 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            text-align: center;
+        }
+        
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .search-demo {
+            margin-bottom: 1rem;
+        }
+        
+        .search-demo input {
+            width: 100%;
+            max-width: 400px;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .search-demo input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .page-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid #e5e7eb;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .page-btn:hover {
+            border-color: #667eea;
+            background: #f8fafc;
+        }
+        
+        .page-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        #demo-container {
+            min-height: 400px;
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 1rem;
+        }
+        
+        .demo-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .demo-info h2 {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        
+        .demo-info p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: left;
+        }
+        
+        .feature-item h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .feature-item p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="demo-info">
+            <h2>🎨 Démonstration des Fonctions d'Affichage</h2>
+            <p>
+                Cette page démontre les nouvelles fonctions d'affichage universelles 
+                qui peuvent être utilisées dans tout le projet pour une expérience utilisateur cohérente.
+            </p>
+            
+            <div class="feature-list">
+                <div class="feature-item">
+                    <h4>📱 Responsive Design</h4>
+                    <p>S'adapte automatiquement à tous les écrans</p>
+                </div>
+                <div class="feature-item">
+                    <h4>⚡ Animations Fluides</h4>
+                    <p>Transitions et animations modernes</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🎯 États Gérés</h4>
+                    <p>Chargement, vide, erreur automatiquement gérés</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🔧 Personnalisable</h4>
+                    <p>Facilement adaptable à vos besoins</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-controls">
+            <h3>🎮 Contrôles de Démonstration</h3>
+            <div class="button-group">
+                <button onclick="demoGridDisplay()" class="btn-secondary">📊 Grille</button>
+                <button onclick="demoListDisplay()" class="btn-secondary">📋 Liste</button>
+                <button onclick="demoCardsDisplay()" class="btn-secondary">🃏 Cartes</button>
+                <button onclick="demoTableDisplay()" class="btn-secondary">📋 Tableau</button>
+                <button onclick="demoLoadingState()" class="btn-secondary">⏳ Chargement</button>
+                <button onclick="demoEmptyState()" class="btn-secondary">📭 Vide</button>
+                <button onclick="demoDynamicData()" class="btn-secondary">🔄 Données Dynamiques</button>
+                <button onclick="demoPagination(1, 6)" class="btn-secondary">📄 Pagination</button>
+                <button onclick="demoNotifications()" class="btn-secondary">🔔 Notifications</button>
+            </div>
+            
+            <div class="search-demo">
+                <input type="text" id="search-input" placeholder="🔍 Rechercher des recettes..." 
+                       oninput="demoFilteredDisplay()">
+            </div>
+            
+            <div id="pagination-container"></div>
+        </div>
+
+        <div id="demo-container">
+            <!-- Le contenu sera affiché ici par les fonctions de démonstration -->
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/display-demo.js"></script>
+    
+    <script>
+        // Initialiser la démonstration
+        document.addEventListener('DOMContentLoaded', function() {
+            initDisplayDemo();
+            
+            // Ajouter un lien de retour
+            const backLink = document.createElement('div');
+            backLink.style.textAlign = 'center';
+            backLink.style.marginTop = '2rem';
+            backLink.innerHTML = `
+                <a href="index.html" class="btn-primary" style="text-decoration: none;">
+                    ← Retour à l'accueil
+                </a>
+            `;
+            document.querySelector('.container').appendChild(backLink);
+        });
+    </script>
+</body>
+</html> 

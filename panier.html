@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier - RecipeMaster</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>🍳 RecipeMaster</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="marketplace.html">Marketplace</a></li>
+                <li><a href="dashboard.html">Mes Recettes</a></li>
+                <li><a href="panier.html" class="panier-link active">🛒 Panier (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Mon Panier</h1>
+            <p>Finalisez votre achat de recettes premium</p>
+        </div>
+
+        <div class="cart-layout">
+            <div class="cart-items">
+                <div id="cart-items-list">
+                    <!-- Cart items will be loaded here -->
+                </div>
+            </div>
+
+            <div class="cart-summary">
+                <div class="summary-card">
+                    <h3>Résumé de la Commande</h3>
+                    <div class="summary-line">
+                        <span>Sous-total:</span>
+                        <span id="subtotal">0€</span>
+                    </div>
+                    <div class="summary-line">
+                        <span>TVA (20%):</span>
+                        <span id="tax">0€</span>
+                    </div>
+                    <div class="summary-line total">
+                        <span>Total:</span>
+                        <span id="total">0€</span>
+                    </div>
+                    <button id="checkout-btn" class="btn-primary full-width">
+                        Procéder au Paiement
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="payment-form">
+                <h3>Paiement Sécurisé</h3>
+                <form id="payment-form">
+                    <div class="form-group">
+                        <label>Numéro de Carte</label>
+                        <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Expiration</label>
+                            <input type="text" id="card-expiry" placeholder="MM/AA" required>
+                        </div>
+                        <div class="form-group">
+                            <label>CVV</label>
+                            <input type="text" id="card-cvv" placeholder="123" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Nom sur la Carte</label>
+                        <input type="text" id="card-name" placeholder="Jean Dupont" required>
+                    </div>
+                    <button type="submit" class="btn-primary full-width">
+                        Confirmer le Paiement
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Initialize cart
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCart();
+            setupCartEventListeners();
+        });
+    </script>
+</body>
+</html>

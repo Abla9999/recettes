@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecipeMaster - Accueil</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>🍳 RecipeMaster</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="marketplace.html">Marketplace</a></li>
+                <li><a href="dashboard.html">Mes Recettes</a></li>
+                <li><a href="panier.html" class="panier-link">🛒 Panier (<span id="cart-count">0</span>)</a></li>
+            </ul>
+            <div class="nav-auth">
+                <a href="connexion.html" class="nav-btn">Connexion</a>
+                <a href="inscription.html" class="nav-btn">Inscription</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Maîtrisez l'Art Culinaire avec des Recettes d'Experts</h2>
+            <p>Débloquez les secrets de cuisine professionnelle avec nos recettes premium de chefs renommés</p>
+            <div class="hero-buttons">
+                <a href="marketplace.html" class="btn-primary">Explorer les Recettes</a>
+                <a href="#featured" class="btn-secondary">Voir les Vedettes</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Recipes -->
+    <section id="featured" class="featured-recipes">
+        <div class="container">
+            <h3>Recettes en Vedette</h3>
+            <div class="recipes-grid" id="featured-recipes">
+                <!-- Recipes will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h3>Pourquoi Choisir RecipeMaster?</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍🍳</div>
+                    <h4>Chefs Experts</h4>
+                    <p>Apprenez de chefs renommés avec des décennies d'expérience</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h4>Recettes Premium</h4>
+                    <p>Accédez à des recettes exclusives avec instructions détaillées</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏰</div>
+                    <h4>Mode Cuisson</h4>
+                    <p>Minuteur intégré avec notifications étape par étape</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Initialize homepage
+        document.addEventListener('DOMContentLoaded', function() {
+            displayFeaturedRecipes();
+            updateCartCount();
+        });
+    </script>
+</body>
+</html>

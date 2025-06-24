@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion Clients - RecipeMaster Admin</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/admin.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <nav class="admin-navbar">
+            <div class="admin-brand">
+                <h1>👑 RecipeMaster Admin</h1>
+            </div>
+            <div class="admin-nav-links">
+                <a href="admin-dashboard.html">📊 Dashboard</a>
+                <a href="admin-clients.html" class="active">👥 Clients</a>
+                <a href="admin-produits.html">📚 Recettes</a>
+                <a href="admin-commandes.html">🛒 Commandes</a>
+            </div>
+            <div class="admin-user">
+                <span>Admin</span>
+                <a href="connexion.html" class="logout-btn">Déconnexion</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="admin-container">
+        <!-- Page Header -->
+        <div class="admin-page-header">
+            <div>
+                <h1>👥 Gestion des Clients</h1>
+                <p>Gérez les comptes utilisateurs et leurs informations</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn-primary" onclick="openAddClientModal()">
+                    ➕ Ajouter un Client
+                </button>
+                <button class="btn-secondary" onclick="exportClients()">
+                    📊 Exporter
+                </button>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-info">
+                    <h3 id="total-clients">0</h3>
+                    <p>Total Clients</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🆕</div>
+                <div class="stat-info">
+                    <h3 id="new-clients">0</h3>
+                    <p>Nouveaux ce mois</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⭐</div>
+                <div class="stat-info">
+                    <h3 id="active-clients">0</h3>
+                    <p>Clients Actifs</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💰</div>
+                <div class="stat-info">
+                    <h3 id="avg-spending">0€</h3>
+                    <p>Dépense Moyenne</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters and Search -->
+        <div class="admin-filters">
+            <div class="search-container">
+                <input type="text" id="client-search" placeholder="Rechercher un client...">
+                <button class="search-btn">🔍</button>
+            </div>
+            <div class="filter-container">
+                <select id="status-filter">
+                    <option value="">Tous les statuts</option>
+                    <option value="active">Actif</option>
+                    <option value="inactive">Inactif</option>
+                    <option value="suspended">Suspendu</option>
+                </select>
+                <select id="type-filter">
+                    <option value="">Tous les types</option>
+                    <option value="user">Utilisateur</option>
+                    <option value="chef">Chef</option>
+                    <option value="admin">Administrateur</option>
+                </select>
+                <button class="btn-secondary" onclick="clearFilters()">Effacer</button>
+            </div>
+        </div>
+
+        <!-- Clients Table -->
+        <div class="admin-table-container">
+            <table class="admin-table" id="clients-table">
+                <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" id="select-all">
+                        </th>
+                        <th>Photo</th>
+                        <th>Nom Complet</th>
+                        <th>Email</th>
+                        <th>Type</th>
+                        <th>Date d'inscription</th>
+                        <th>Recettes Achetées</th>
+                        <th>Total Dépensé</th>
+                        <th>Statut</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="clients-tbody">
+                    <!-- Clients will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <button class="page-btn" onclick="previousPage()">⬅️ Précédent</button>
+            <div class="page-numbers" id="page-numbers"></div>
+            <button class="page-btn" onclick="nextPage()">Suivant ➡️</button>
+        </div>
+    </div>
+
+    <!-- Add/Edit Client Modal -->
+    <div id="client-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Ajouter un Client</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <form id="client-form" class="admin-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Prénom</label>
+                        <input type="text" id="client-prenom" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nom</label>
+                        <input type="text" id="client-nom" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="client-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Téléphone</label>
+                        <input type="tel" id="client-telephone">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Type de Compte</label>
+                        <select id="client-type" required>
+                            <option value="user">Utilisateur</option>
+                            <option value="chef">Chef</option>
+                            <option value="admin">Administrateur</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Statut</label>
+                        <select id="client-status" required>
+                            <option value="active">Actif</option>
+                            <option value="inactive">Inactif</option>
+                            <option value="suspended">Suspendu</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Notes</label>
+                    <textarea id="client-notes" rows="3"></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal()">Annuler</button>
+                    <button type="submit" class="btn-primary">Sauvegarder</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Client Details Modal -->
+    <div id="client-details-modal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Détails du Client</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div id="client-details-content">
+                <!-- Client details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/admin-clients.js"></script>
+</body>
+</html>

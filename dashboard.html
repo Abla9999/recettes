@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Recettes - RecipeMaster</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>🍳 RecipeMaster</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="marketplace.html">Marketplace</a></li>
+                <li><a href="dashboard.html" class="active">Mes Recettes</a></li>
+                <li><a href="panier.html" class="panier-link">🛒 Panier (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Mes Recettes Achetées</h1>
+            <p>Accédez à toutes vos recettes premium et commencez à cuisiner</p>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📚</div>
+                    <div class="stat-info">
+                        <h3 id="total-recipes">0</h3>
+                        <p>Recettes Achetées</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-info">
+                        <h3 id="avg-rating">0.0</h3>
+                        <p>Note Moyenne</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">👨‍🍳</div>
+                    <div class="stat-info">
+                        <h3 id="total-chefs">0</h3>
+                        <p>Chefs Suivis</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏱️</div>
+                    <div class="stat-info">
+                        <h3 id="total-time">0h</h3>
+                        <p>Temps Total</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="dashboard-filters">
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Rechercher dans mes recettes...">
+                <button id="search-btn">🔍</button>
+            </div>
+            
+            <div class="filters">
+                <select id="category-filter">
+                    <option value="">Toutes Catégories</option>
+                    <option value="dessert">Dessert</option>
+                    <option value="plat-principal">Plat Principal</option>
+                    <option value="entrée">Entrée</option>
+                    <option value="petit-déjeuner">Petit Déjeuner</option>
+                </select>
+                
+                <select id="difficulty-filter">
+                    <option value="">Tous Niveaux</option>
+                    <option value="facile">Facile</option>
+                    <option value="moyen">Moyen</option>
+                    <option value="difficile">Difficile</option>
+                </select>
+                
+                <select id="sort-select">
+                    <option value="recent">Plus Récentes</option>
+                    <option value="rating">Meilleures Notes</option>
+                    <option value="time">Temps de Préparation</option>
+                    <option value="chef">Par Chef</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Results Count -->
+        <div class="results-info">
+            <span id="results-count">Chargement...</span>
+        </div>
+
+        <!-- Purchased Recipes Grid -->
+        <div class="recipes-grid" id="purchased-recipes">
+            <!-- Purchased recipes will be loaded here -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="empty-state" class="empty-state" style="display: none;">
+            <div class="empty-icon">📚</div>
+            <h3>Aucune recette achetée</h3>
+            <p>Vous n'avez pas encore acheté de recettes. Explorez notre marketplace pour découvrir des recettes délicieuses !</p>
+            <a href="marketplace.html" class="btn-primary">Explorer le Marketplace</a>
+        </div>
+    </div>
+
+    <!-- Recipe Detail Modal -->
+    <div id="recipe-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div id="modal-body">
+                <!-- Recipe details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeDashboard();
+            setupDashboardEventListeners();
+        });
+    </script>
+</body>
+</html>

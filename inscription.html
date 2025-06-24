@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - RecipeMaster</title>
+    <link rel="stylesheet" href="styles/auth.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="auth-container">
+        <!-- Animated Background -->
+        <div class="animated-bg">
+            <div class="floating-icon">🍳</div>
+            <div class="floating-icon">🥘</div>
+            <div class="floating-icon">🍰</div>
+            <div class="floating-icon">🥖</div>
+            <div class="floating-icon">🧄</div>
+            <div class="floating-icon">🍅</div>
+        </div>
+
+        <!-- Registration Form -->
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="logo-container">
+                    <div class="logo-icon">👨‍🍳</div>
+                    <h1>RecipeMaster</h1>
+                </div>
+                <h2>Inscription</h2>
+                <p>Rejoignez notre communauté culinaire</p>
+            </div>
+
+            <form id="form-inscription" class="auth-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <div class="input-container">
+                            <span class="input-icon">👤</span>
+                            <input type="text" id="prenom" placeholder="Prénom" required>
+                            <div class="input-line"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-container">
+                            <span class="input-icon">👤</span>
+                            <input type="text" id="nom" placeholder="Nom" required>
+                            <div class="input-line"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-container">
+                        <span class="input-icon">📧</span>
+                        <input type="email" id="email" placeholder="Adresse email" required>
+                        <div class="input-line"></div>
+                        <div class="validation-icon"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-container">
+                        <span class="input-icon">📱</span>
+                        <input type="tel" id="telephone" placeholder="Numéro de téléphone" required>
+                        <div class="input-line"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-container">
+                        <span class="input-icon">🔒</span>
+                        <input type="password" id="password" placeholder="Mot de passe" required>
+                        <div class="input-line"></div>
+                        <button type="button" class="password-toggle" onclick="togglePassword('password')">👁️</button>
+                    </div>
+                    <div class="password-strength">
+                        <div class="strength-bar">
+                            <div class="strength-fill"></div>
+                        </div>
+                        <span class="strength-text">Force du mot de passe</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-container">
+                        <span class="input-icon">🔒</span>
+                        <input type="password" id="confirm-password" placeholder="Confirmer le mot de passe" required>
+                        <div class="input-line"></div>
+                        <button type="button" class="password-toggle" onclick="togglePassword('confirm-password')">👁️</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="select-label">Type de compte:</label>
+                    <div class="account-type-selector">
+                        <label class="radio-container">
+                            <input type="radio" name="account-type" value="user" checked>
+                            <span class="radio-checkmark"></span>
+                            <div class="account-option">
+                                <span class="account-icon">👤</span>
+                                <div class="account-info">
+                                    <strong>Utilisateur</strong>
+                                    <small>Accès aux recettes premium</small>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="account-type" value="chef">
+                            <span class="radio-checkmark"></span>
+                            <div class="account-option">
+                                <span class="account-icon">👨‍🍳</span>
+                                <div class="account-info">
+                                    <strong>Chef</strong>
+                                    <small>Publier vos propres recettes</small>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="terms" required>
+                        <span class="checkmark"></span>
+                        J'accepte les <a href="#" class="terms-link">conditions d'utilisation</a>
+                    </label>
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="newsletter">
+                        <span class="checkmark"></span>
+                        Recevoir la newsletter culinaire
+                    </label>
+                </div>
+
+                <button type="submit" class="auth-btn">
+                    <span class="btn-text">Créer mon compte</span>
+                    <span class="btn-loader"></span>
+                </button>
+
+                <div class="divider">
+                    <span>ou</span>
+                </div>
+
+                <div class="social-login">
+                    <button type="button" class="social-btn google-btn">
+                        <span class="social-icon">🔍</span>
+                        S'inscrire avec Google
+                    </button>
+                    <button type="button" class="social-btn facebook-btn">
+                        <span class="social-icon">📘</span>
+                        S'inscrire avec Facebook
+                    </button>
+                </div>
+
+                <div class="auth-footer">
+                    <p>Déjà un compte? <a href="connexion.html">Se connecter</a></p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Success Animation -->
+        <div id="success-animation" class="success-overlay">
+            <div class="success-content">
+                <div class="success-icon">🎉</div>
+                <h3>Inscription réussie!</h3>
+                <p>Bienvenue dans RecipeMaster!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

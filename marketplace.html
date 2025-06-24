@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace - RecipeMaster</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>🍳 RecipeMaster</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="marketplace.html" class="active">Marketplace</a></li>
+                <li><a href="dashboard.html">Mes Recettes</a></li>
+                <li><a href="panier.html" class="panier-link">🛒 Panier (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Marketplace des Recettes</h1>
+            <p>Découvrez et achetez des recettes premium de chefs de classe mondiale</p>
+        </div>
+
+        <!-- Search and Filters -->
+        <div class="search-filters">
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Rechercher recettes, chefs, ou ingrédients...">
+                <button id="search-btn">🔍</button>
+            </div>
+            
+            <div class="filters">
+                <select id="category-filter">
+                    <option value="">Toutes Catégories</option>
+                    <option value="dessert">Dessert</option>
+                    <option value="plat-principal">Plat Principal</option>
+                    <option value="entrée">Entrée</option>
+                    <option value="petit-déjeuner">Petit Déjeuner</option>
+                </select>
+                
+                <select id="difficulty-filter">
+                    <option value="">Tous Niveaux</option>
+                    <option value="facile">Facile</option>
+                    <option value="moyen">Moyen</option>
+                    <option value="difficile">Difficile</option>
+                </select>
+                
+                <select id="price-filter">
+                    <option value="">Tous Prix</option>
+                    <option value="0-20">0€ - 20€</option>
+                    <option value="20-30">20€ - 30€</option>
+                    <option value="30+">30€+</option>
+                </select>
+
+                <select id="sort-select">
+                    <option value="rating">Meilleures Notes</option>
+                    <option value="price-low">Prix Croissant</option>
+                    <option value="price-high">Prix Décroissant</option>
+                    <option value="difficulty">Difficulté</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Results Count -->
+        <div class="results-info">
+            <span id="results-count">Chargement...</span>
+        </div>
+
+        <!-- Recipes Grid -->
+        <div class="recipes-grid" id="recipes-grid">
+            <!-- Recipes will be loaded here -->
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Initialize marketplace
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeMarketplace();
+            setupMarketplaceEventListeners();
+        });
+    </script>
+</body>
+</html>
