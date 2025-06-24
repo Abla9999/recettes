@@ -37,7 +37,7 @@ const recipesDatabase = [
         serves: 8,
         rating: 4.6,
         description: "Une charlotte élégante aux fruits frais, parfaite pour les fêtes",
-        image: "images/charlotte_2.jpg",
+        image: "https://assets.afcdn.com/recipe/20171019/73623_w1024h1024c1cx2215cy1476cxt0cyt0cxb4430cyb2953.webp",
         tags: ["fruits", "dessert", "fêtes", "élégant"],
         ingredients: [
             { name: "Fruits frais mélangés", quantity: "500g" },
@@ -95,7 +95,7 @@ const recipesDatabase = [
         serves: 4,
         rating: 4.9,
         description: "Une pizza authentique aux saveurs italiennes",
-        image: "images/pizza_pepperoni.jpg",
+        image: "https://papajohns.vtexassets.com/arquivos/ids/157518/FUNDIDA-CON-PEPPERONI.jpg.jpg?v=638810093351270000",
         tags: ["pizza", "italien", "pepperoni", "fromage"],
         ingredients: [
             { name: "Farine T55", quantity: "400g" },
@@ -153,7 +153,7 @@ const recipesDatabase = [
         serves: 4,
         rating: 4.6,
         description: "Des pâtes crémeuses à la carbonara traditionnelle",
-        image: "images/Fotolia_50412971_S-849x516.jpg",
+        image: "https://dinnerthendessert.com/wp-content/uploads/2022/01/Resize-Bacon-Carbonara.jpg",
         tags: ["pâtes", "italien", "carbonara", "crème"],
         ingredients: [
             { name: "Spaghetti", quantity: "400g" },
