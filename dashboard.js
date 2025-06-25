@@ -41,7 +41,7 @@ const recipesDatabase = [
         serves: 8,
         rating: 4.6,
         description: "Une charlotte élégante aux fruits frais, parfaite pour les fêtes",
-        image: "charlotte_2.jpg",
+        image: "ch.webp",
         tags: ["fruits", "dessert", "fêtes", "élégant"],
         ingredients: [
             { name: "Fruits frais mélangés", quantity: "500g" },
@@ -99,7 +99,7 @@ const recipesDatabase = [
         serves: 4,
         rating: 4.9,
         description: "Une pizza authentique aux saveurs italiennes",
-        image: "pizza_pepperoni.jpg",
+        image: "pi.jpg",
         tags: ["pizza", "italien", "pepperoni", "fromage"],
         ingredients: [
             { name: "Farine T55", quantity: "400g" },
@@ -157,7 +157,7 @@ const recipesDatabase = [
         serves: 4,
         rating: 4.6,
         description: "Des pâtes crémeuses à la carbonara traditionnelle",
-        image: "Fotolia_50412971_S-849x516.jpg",
+        image: "ca.webp",
         tags: ["pâtes", "italien", "carbonara", "crème"],
         ingredients: [
             { name: "Spaghetti", quantity: "400g" },
@@ -213,7 +213,7 @@ const recipesDatabase = [
         serves: 8,
         rating: 4.8,
         description: "Une tarte aux pommes traditionnelle et délicieuse",
-        image: "images (1).jpeg",
+        image: "ta.jpeg",
         tags: ["tarte", "pommes", "français", "classique"],
         ingredients: [
             { name: "Pâte brisée", quantity: "1" },

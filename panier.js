@@ -43,7 +43,7 @@ const recipesDatabase = [
         serves: 8,
         rating: 4.6,
         description: "Un cake riche en fruits secs et noix, parfait pour les fêtes",
-        image: "https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=400",
+        image: "https://fac.img.pmdstatic.net/fit/~1~fac~2018~07~30~1cb86e18-c9ca-400f-95a4-25b6fa454003.jpeg/750x562/quality/80/crop-from/center/cr/wqkgS2V0dGVuaG9mZW4vU3VjcsOpIFNhbMOpIC8gRmVtbWUgQWN0dWVsbGU%3D/cake-aux-fruits-secs-et-aux-agrumes.jpeg",
         tags: ["fruits secs", "dessert", "fêtes"],
         ingredients: [
             { name: "Fruits secs mélangés", quantity: "150g" },
@@ -170,7 +170,7 @@ const recipesDatabase = [
         serves: 8,
         rating: 4.5,
         description: "La célèbre tarte tatin revisitée avec des pommes premium",
-        image: "https://images.unsplash.com/photo-1621743478914-cc8a86d7e9b5?w=400",
+        image: "https://www.academiedugout.fr/images/32253/948-580/8147-tarte-tatin-dananas.jpg?poix=50&poiy=50",
         tags: ["tarte", "pommes", "français", "classique"],
         ingredients: [
             { name: "Pommes Golden", quantity: "1kg" },
