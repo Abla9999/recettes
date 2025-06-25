@@ -19,7 +19,7 @@ const recipesDatabase = [
     serves: 6,
     rating: 4.8,
     description: "Un délicieux cake au chocolat fondant et moelleux, parfait pour les occasions spéciales",
-    image: "images/Chocolate-Pound-Cake_1.jpg",
+    image: "Chocolate-Pound-Cake_1.jpg",
     tags: ["chocolat", "dessert", "facile"],
     ingredients: [
       { name: "Chocolat noir", quantity: "200g" },
@@ -45,7 +45,7 @@ const recipesDatabase = [
     serves: 8,
     rating: 4.6,
     description: "Une charlotte élégante aux fruits frais, parfaite pour les fêtes",
-    image: "images/charlotte_2.jpg",
+    image: "charlotte_2.jpg",
     tags: ["fruits", "dessert", "fêtes", "élégant"],
     ingredients: [
       { name: "Fruits frais mélangés", quantity: "500g" },
@@ -73,7 +73,7 @@ const recipesDatabase = [
     serves: 6,
     rating: 4.7,
     description: "Un cake léger et fruité aux fruits rouges de saison",
-    image: "images/cake_aux_fruits_rouges_et_lait_de_coco.jpg",
+    image: "cake_aux_fruits_rouges_et_lait_de_coco.jpg",
     tags: ["fruits rouges", "dessert", "léger"],
     ingredients: [
       { name: "Farine", quantity: "200g" },
@@ -103,7 +103,7 @@ const recipesDatabase = [
     serves: 4,
     rating: 4.9,
     description: "Une pizza authentique aux saveurs italiennes",
-    image: "images/pizza_pepperoni.jpg",
+    image: "pizza_pepperoni.jpg",
     tags: ["pizza", "italien", "pepperoni", "fromage"],
     ingredients: [
       { name: "Farine T55", quantity: "400g" },
@@ -132,7 +132,7 @@ const recipesDatabase = [
     serves: 2,
     rating: 4.5,
     description: "Une salade fraîche et colorée aux saveurs méditerranéennes",
-    image: "images/depositphotos_144188519-stock-photo-colorful-food-pattern.jpg",
+    image: "depositphotos_144188519-stock-photo-colorful-food-pattern.jpg",
     tags: ["salade", "frais", "méditerranéen", "healthy"],
     ingredients: [
       { name: "Laitue", quantity: "1" },
@@ -161,7 +161,7 @@ const recipesDatabase = [
     serves: 4,
     rating: 4.6,
     description: "Des pâtes crémeuses à la carbonara traditionnelle",
-    image: "images/Fotolia_50412971_S-849x516.jpg",
+    image: "Fotolia_50412971_S-849x516.jpg",
     tags: ["pâtes", "italien", "carbonara", "crème"],
     ingredients: [
       { name: "Spaghetti", quantity: "400g" },
@@ -189,7 +189,7 @@ const recipesDatabase = [
     serves: 1,
     rating: 4.4,
     description: "Un smoothie bowl healthy et coloré pour bien commencer la journée",
-    image: "images/170920241726586386.jpeg",
+    image: "170920241726586386.jpeg",
     tags: ["smoothie", "healthy", "fruits", "petit-déjeuner"],
     ingredients: [
       { name: "Banane", quantity: "1" },
@@ -217,7 +217,7 @@ const recipesDatabase = [
     serves: 8,
     rating: 4.8,
     description: "Une tarte aux pommes traditionnelle et délicieuse",
-    image: "images/images (1).jpeg",
+    image: "images (1).jpeg",
     tags: ["tarte", "pommes", "français", "classique"],
     ingredients: [
       { name: "Pâte brisée", quantity: "1" },
