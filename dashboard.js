@@ -41,7 +41,7 @@ const recipesDatabase = [
         serves: 8,
         rating: 4.6,
         description: "Une charlotte élégante aux fruits frais, parfaite pour les fêtes",
-        image: "https://media.ccmbg.com/tc/3739247189/988165",
+        image: "images/charlotte_2.jpg",
         tags: ["fruits", "dessert", "fêtes", "élégant"],
         ingredients: [
             { name: "Fruits frais mélangés", quantity: "500g" },
@@ -99,7 +99,7 @@ const recipesDatabase = [
         serves: 4,
         rating: 4.9,
         description: "Une pizza authentique aux saveurs italiennes",
-        image: "https://adc-dev-images-recipes.s3.eu-west-1.amazonaws.com/pizza_pepperoni.jpg",
+        image: "images/pizza_pepperoni.jpg",
         tags: ["pizza", "italien", "pepperoni", "fromage"],
         ingredients: [
             { name: "Farine T55", quantity: "400g" },
@@ -157,7 +157,7 @@ const recipesDatabase = [
         serves: 4,
         rating: 4.6,
         description: "Des pâtes crémeuses à la carbonara traditionnelle",
-        image: "https://littlespoonfarm.com/wp-content/uploads/2024/07/Pasta-Carbonara-Recipe.jpg",
+        image: "images/Fotolia_50412971_S-849x516.jpg",
         tags: ["pâtes", "italien", "carbonara", "crème"],
         ingredients: [
             { name: "Spaghetti", quantity: "400g" },
